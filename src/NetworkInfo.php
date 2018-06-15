@@ -78,5 +78,33 @@ class NetworkInfo extends DaemonData
 
         return $this->getData('getnetworkhashps');
     }
+    /**
+    * @access public
+    * @param string $filter
+    * @return array
+    **/
+    
+    public function MasterNode($type = 'pivx', $filter = NULL){
+     {
+         if (isset($type = 'pivx')){
+         return $this->getData('masternodelist', array(
+            $filter
+         ));
+         }else {
+             return $this->getData('masternode', array(
+                 $filter
+                 ));
+             }
+     }
+     public function MasterNodeCount($type = 'pivx')
+      {
+        if (isset($type = 'pivx')){
+            return $this->getData('masternodecount');
+            }
+         else {
+            return $this->getData('masternode?command=count');
+             
+             }
+       }
 
 }
